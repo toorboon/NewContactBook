@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './shared/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'Project';
+  title = 'Contact Book New';
+  email: string;
+  password: string;
+
+  constructor(public authService: AuthService) {}
+
+  signup() {
+    this.authService.signup(this.email, this.password);
+    this.email = this.password = '';
+  }
+
+  login() {
+    this.authService.login(this.email, this.password);
+    this.email = this.password = '';    
+  }
+
+  logout() {
+    this.authService.logout();
+  }
 }
