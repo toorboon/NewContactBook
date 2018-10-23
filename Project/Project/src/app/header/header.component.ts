@@ -9,7 +9,7 @@ export class HeaderComponent implements OnInit {
 	title:string;
 
   constructor() {
-  	this.title="Phone Book";
+  	this.title="Contact Book New";
 
    }
 
