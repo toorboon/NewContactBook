@@ -10,6 +10,7 @@ export class ContactListComponent implements OnInit {
  ContactArray =[];
  showDeletedMessage : boolean;
  searchText:string = "";
+ searchTextFirst:string = "";
 
   constructor(private ContactService: ContactService) { }
 
@@ -33,12 +34,16 @@ export class ContactListComponent implements OnInit {
      }
   }
 
+  filterConditionFirst(Contact){
+  return Contact.Type.toLowerCase().indexOf(this.searchTextFirst.toLowerCase()) != -1 ;
+};
+
   filterCondition(Contact){
      return Contact.FirstName.toLowerCase().indexOf(this.searchText.toLowerCase()) != -1 || 
      Contact.LastName.toLowerCase().indexOf(this.searchText.toLowerCase()) != -1 || 
      Contact.PhoneNumber.toLowerCase().indexOf(this.searchText.toLowerCase()) != -1 || 
-     Contact.Email.toLowerCase().indexOf(this.searchText.toLowerCase()) != -1 || 
-     Contact.Type.toLowerCase().indexOf(this.searchText.toLowerCase()) != -1 ;
+     Contact.Email.toLowerCase().indexOf(this.searchText.toLowerCase()) != -1 //|| 
+     //Contact.Type.toLowerCase().indexOf(this.searchText.toLowerCase()) != -1 ;
   }
 
   onShowForm(check){

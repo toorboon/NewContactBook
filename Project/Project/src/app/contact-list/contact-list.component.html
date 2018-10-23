@@ -1,6 +1,16 @@
-<form class="form-inline">
+<!--<form class="form-inline">
         <input name="searchInput" class="form-control" placeholder="Search" #searchInput="ngModel" [(ngModel)]="searchText" style="width: 80%;">
         <button class="btn btn-outline-primary" (click)="searchText=''">Filter</button>
+</form>-->
+
+<form class="form-inline">
+        <input name="searchInput" class="form-control" placeholder="Search" #searchInput="ngModel" [(ngModel)]="searchTextFirst" style="width: 80%;">
+        <button class="btn btn-outline-primary" (click)="searchTextFirst=''">Filter</button>
+</form>
+
+<form class="form-inline">
+        <input name="searchInput" class="form-control" placeholder="Search" #searchInput="ngModel" [(ngModel)]="searchText" style="width: 80%;">
+        <button class="btn btn-outline-primary" (click)="searchTextSecond=''">Filter</button>
 </form>
 
 <div class="d-flex justify-content-between">
@@ -25,7 +35,7 @@
                 <tbody>
                         <ng-container *ngFor="let Contact of ContactArray">
                                
-                                <tr id="t-row" *ngIf="filterCondition(Contact)">
+                                <tr id="t-row" *ngIf="filterConditionFirst(Contact) && filterCondition(Contact)">
                                         <td class="align-middle">{{Contact.FirstName}}</td>
                                         <td class="align-middle">{{Contact.LastName}}</td>
                                         <td class="align-middle">{{Contact.PhoneNumber}}</td>
