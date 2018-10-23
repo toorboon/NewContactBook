@@ -1,29 +1,17 @@
 <header></header>
 <nav-bar></nav-bar>
  
-<!--Authentication starts here-->
-  <div *ngIf="!(authService.user | async)">
-    <input type="text" [(ngModel)]="email" placeholder="email">
-    <input type="password" [(ngModel)]="password" placeholder="password">
-    
 <!--This is only for sign-up
     <button (click)="signup()" [disabled]="!email || !password">
       Signup
     </button>
 -->
-    <button (click)="login()" [disabled]="!email || !password">
-      Login
-    </button>
-  </div>
-
-  <button (click)="logout()" *ngIf="authService.user | async">
-    Logout
-  </button>
-
-<!--Blocking the user from seeing anything if  not looged in, happens here!-->
-  <div *ngIf="authService.user | async">
+  
+<!--Blocking the user from seeing anything if  not looged in-->
+  <div *ngIf="authService.user | async; else show_login">
 		<router-outlet></router-outlet>
   </div>
+  <ng-template #show_login><login></login></ng-template>
 
 <app-footer></app-footer>
 

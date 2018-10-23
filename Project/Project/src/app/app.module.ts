@@ -20,6 +20,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FooterComponent } from './footer/footer.component';
 import { SupportComponent } from './support/support.component';
 import { ContactService } from "./shared/contact.service";
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ContactService } from "./shared/contact.service";
     HeaderComponent,
     NavBarComponent,
     FooterComponent,
-    SupportComponent
+    SupportComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
