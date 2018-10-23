@@ -1,3 +1,28 @@
-<p>
-  support works!
-</p>
+<div class="container">
+  <h3>
+		Contact form
+	</h3>
+  <form>
+    <div class="form-group">
+      
+      <input id="name" type="name" class="form-control" placeholder="Put your Name">
+     <p class="help-block text-danger"></p>
+    </div>
+    <div class="form-group">
+      
+      <input id="email" type="email" class="form-control" placeholder="email">
+      <p class="help-block text-danger"></p>
+    </div>
+    <div class="form-group">
+    
+    <textarea id="message" class="form-control" rows="7" placeholder="put your problem"></textarea>
+    <p class="help-block text-danger"></p>
+  </div>
+    
+    <button id="sendMessageButton" type="submit" class="btn btn-outline-secondary mx-1" value="Submit">Send</button>
+    <button type="submit" class="btn btn-outline-secondary mx-1" value="Submit">Cancel</button>
+  </form>
+  <div class="alert alert-info" *ngIf="showSuccessMessage">
+      Sent!! you will soon be contacted via email
+   </div>
+</div>
