@@ -42,12 +42,11 @@ export class ContactListComponent implements OnInit {
      return Contact.FirstName.toLowerCase().indexOf(this.searchText.toLowerCase()) != -1 || 
      Contact.LastName.toLowerCase().indexOf(this.searchText.toLowerCase()) != -1 || 
      Contact.PhoneNumber.toLowerCase().indexOf(this.searchText.toLowerCase()) != -1 || 
-     Contact.Email.toLowerCase().indexOf(this.searchText.toLowerCase()) != -1 //|| 
-     //Contact.Type.toLowerCase().indexOf(this.searchText.toLowerCase()) != -1 ;
+     Contact.Email.toLowerCase().indexOf(this.searchText.toLowerCase()) != -1
+     
   }
 
   onShowForm(check){
-    console.log('You are inside onShowForm')
     this.ContactService.toggleForm(check);
   }
 

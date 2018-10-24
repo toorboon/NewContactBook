@@ -20,6 +20,7 @@ export class ContactFormComponent implements OnInit {
 
   onSubmit(){
      this.submitted = true;
+     
      if(this.ContactService.form.valid){
         if(this.ContactService.form.get("$key").value == null ){ 
           this.ContactService.insertContact(this.ContactService.form.value);
@@ -34,12 +35,16 @@ export class ContactFormComponent implements OnInit {
      }
   }
 
+  /*populateUrl(Url){
+    $('#photo_placeholder').val(Url);
+  }*/
+
   onCancel(){
     this.ContactService.toggleForm();
     this.ContactService.form.reset();
   }
-
+/*
   photoUp(event) {
    this.ContactService.chooseFiles(event);
-  }
+  }*/
 }

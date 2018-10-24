@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { FormControl , FormGroup, Validators } from "@angular/forms";
 import { AngularFireDatabase, AngularFireList,  } from "angularfire2/database";
 import { AngularFireStorage } from 'angularfire2/storage';
+//import { ContactFormComponent } from '../contact-form/contact-form.component'
 
 declare var $: any;
 
@@ -13,20 +14,23 @@ export class ContactService {
   selectedFiles: FileList;
   file: File;
   imageURL: string = '';
+ 
 
   form = new FormGroup({
      $key:new FormControl(null),
      FirstName:new FormControl('', Validators.required),
      LastName:new FormControl('', Validators.required),
      PhoneNumber:new FormControl('', [Validators.required, Validators.minLength(8)]),
-     Email:new FormControl('', Validators.email),
+     Email:new FormControl('', [Validators.required, Validators.email]),
      Type:new FormControl('', Validators.required),
-     comment:new FormControl(''),
-     photo:new FormControl('')
+     Comment:new FormControl('', Validators.required),
+     Photo:new FormControl('', Validators.required)
   });
 
   constructor(private firebase: AngularFireDatabase,
-              private storage: AngularFireStorage) { }
+              private storage: AngularFireStorage,
+              //private contactFormComponent: ContactFormComponent
+              ) { }
 
   getContacts(){
                  this.ContactList = this.firebase.list('Contacts');
@@ -34,14 +38,16 @@ export class ContactService {
          }
 
   insertContact(Contact){
-         this.ContactList.push({
+        
+        
+        this.ContactList.push({
                  FirstName: Contact.FirstName,
                  LastName: Contact.LastName,
                  PhoneNumber: Contact.PhoneNumber,
                  Email:Contact.Email,
                  Type:Contact.Type,
-                 comment:Contact.comment,
-                 photo:Contact.photo
+                 Comment:Contact.Comment,
+                 Photo:Contact.Photo
          });
   }
 
@@ -51,13 +57,13 @@ export class ContactService {
 
   updateContact(Contact){
     this.ContactList.update(Contact.$key,{
-       FirstName: Contact.FirstName,
+        FirstName: Contact.FirstName,
         LastName: Contact.LastName,
         PhoneNumber: Contact.PhoneNumber,
         Email:Contact.Email,
         Type:Contact.Type,
-        comment:Contact.comment,
-        photo:Contact.photo
+        Comment:Contact.Comment,
+        Photo:Contact.Photo
     });
   }
 
@@ -76,7 +82,7 @@ export class ContactService {
           $('#contact-form-container').toggle(); 
       }
   }
-
+/*
   chooseFiles(event) {
    this.selectedFiles = event.target.files;
    if (this.selectedFiles.item(0))
@@ -89,13 +95,16 @@ export class ContactService {
    const pathFile='/angfire2store/' + uniqkey;
    const uploadTask = this.storage.upload(pathFile, file).then(() => {
         const ref = this.storage.ref(pathFile);
-        const downloadURL = ref.getDownloadURL().subscribe(url => {
+        let downloadURL = ref.getDownloadURL().subscribe(url => {
         const Url = url;
         this.imageURL = url;
         console.log(Url);
+      //  this.contactFormComponent.populateUrl(Url);
         });
 
-    })
+    })*/
+   
+   
    }
 
   /*THIS WILL BE CALLED FROM CONTACT FORM HTML INSIDE ON SUBMIT FUNCTION
@@ -105,4 +114,4 @@ export class ContactService {
   }*/
 
 
-}
+

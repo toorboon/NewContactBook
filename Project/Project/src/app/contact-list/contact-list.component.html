@@ -25,7 +25,7 @@
                         <th>Mobile</th>
                         <th>Email</th>
                         <th>Type</th>
-                        <th>comment</th> 
+                        <th>Comment</th> 
 
                         <th></th>
                 </thead>
@@ -33,12 +33,12 @@
                         <ng-container *ngFor="let Contact of ContactArray">
                                
                                 <tr id="t-row" *ngIf="filterConditionFirst(Contact) && filterCondition(Contact)">
-                                        <td class="align-middle"><img style="height: 100px; width: 100px;" src="{{imageURL}}"/>{{imageURL}}</td>
+                                        <td class="align-middle"><img style="height: 100px; width: 100px;" src="{{Contact.photo}}" alt="your picture"></td>
                                         <td class="align-middle">{{Contact.FirstName}} {{Contact.LastName}}</td>
                                         <td class="align-middle">{{Contact.PhoneNumber}}</td>
                                         <td class="align-middle">{{Contact.Email}}</td>
                                         <td class="align-middle">{{Contact.Type}}</td>
-                                        <td class="align-middle">{{Contact.comment}}</td>
+                                        <td class="align-middle">{{Contact.Comment}}</td>
                                         <td>
                                                 <div class="btn-group">
                                                         <button class="btn btn-sm btn-info" (click)="ContactService.populateForm(Contact)" (click)="onShowForm('edit')">Edit</button>
