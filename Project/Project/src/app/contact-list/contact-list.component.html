@@ -1,16 +1,12 @@
-<!--<form class="form-inline">
-        <input name="searchInput" class="form-control" placeholder="Search" #searchInput="ngModel" [(ngModel)]="searchText" style="width: 80%;">
-        <button class="btn btn-outline-primary" (click)="searchText=''">Filter</button>
-</form>-->
 
 <form class="form-inline">
         <input name="searchInput" class="form-control" placeholder="Search" #searchInput="ngModel" [(ngModel)]="searchTextFirst" style="width: 80%;">
-        <button class="btn btn-outline-primary" (click)="searchTextFirst=''">Filter</button>
+        <button class="btn btn-outline-primary" (click)="searchTextFirst = ''">Reset</button>
 </form>
 
 <form class="form-inline">
         <input name="searchInput" class="form-control" placeholder="Search" #searchInput="ngModel" [(ngModel)]="searchText" style="width: 80%;">
-        <button class="btn btn-outline-primary" (click)="searchTextSecond=''">Filter</button>
+        <button class="btn btn-outline-primary" (click)="searchText=''">Reset</button>
 </form>
 
 <div class="d-flex justify-content-between">
