@@ -1,10 +1,21 @@
 $background-color3: #2E2E2E
 $text-color: white
 
-button
-	margin-left: 4px
-	margin-right: 4px
+/* button
+	margin-left: 2px
+	margin-right: 2px */
 
 #t-row
 	background: $background-color3
 	color: $text-color
+
+#select
+	cursor: pointer
+
+@media only screen and (max-width: 576px)
+	#text
+		display: none
+
+	#t-row
+		overflow: scroll
+

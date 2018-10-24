@@ -1,31 +1,30 @@
 
 <form class="form-line">
-       <input type="radio" name="Check" (click)="searchTextFirst=''" checked="true">All
-       <input type="radio" name="Check" (click)="searchTextFirst='Student'">Student
-       <input type="radio" name="Check" (click)="searchTextFirst='Company'">Company
-       <input type="radio" name="Check" (click)="searchTextFirst='Lunch-speaker'">Lunchspeaker
+       <input id="select" type="radio" name="Check" (click)="searchTextFirst=''" checked="true">All
+       <input id="select" type="radio" name="Check" (click)="searchTextFirst='Student'">Student
+       <input id="select" type="radio" name="Check" (click)="searchTextFirst='Company'">Company
+       <input id="select" type="radio" name="Check" (click)="searchTextFirst='Lunch-speaker'">Lunchspeaker
 </form>
-
-<form class="form-inline">
-        <input name="searchInput" class="form-control" placeholder="Search" #searchInput="ngModel" [(ngModel)]="searchText" style="width: 80%;">
-        <button class="btn btn-outline-primary" (click)="searchText=''">Reset</button>
+<div class="container">
+<form class="form-inline row">
+        <input id="search" name="searchInput" class="col-lg-10 col-md-10 col-sm-8 form-control" placeholder="Search" #searchInput="ngModel" [(ngModel)]="searchText">
+        <button id="btn" class="col-lg-1 col-md-1 col-sm-2 btn btn-outline-success" (click)="searchText=''">Reset</button>
 </form>
-
+</div>
 <div class="d-flex justify-content-between">
-
-        <button class="btn btn-success btn-sm my-2 mx-3" (click)="onShowForm()">Add contact</button>    
+<button class="btn btn-success btn-sm my-2 " (click)="onShowForm()">Add contact</button>    
       
 </div>
 
 <div class="p-1 table-responsive">
         <table class="table table-sm table-hover table-dark">
                 <thead>
-                        <th>photo</th>
+                        <th id="text">photo</th>
                         <th>Name</th>
                         <th>Mobile</th>
                         <th>Email</th>
-                        <th>Type</th>
-                        <th>Comment</th> 
+                        <th id="text">Type</th>
+                        <th id="text">Comment</th> 
 
                         <th></th>
                 </thead>
@@ -33,17 +32,17 @@
                         <ng-container *ngFor="let Contact of ContactArray">
                                
                                 <tr id="t-row" *ngIf="filterConditionFirst(Contact) && filterCondition(Contact)">
-                                        <td class="align-middle"><img style="height: 100px; width: 100px;" src="{{Contact.Photo}}" alt="your picture"></td>
+                                        <td id="text" class="align-middle"><img style="height: 100px; width: 100px;" src="{{Contact.Photo}}" alt="your picture"></td>
                                         <td class="align-middle">{{Contact.FirstName}} {{Contact.LastName}}</td>
                                         <td class="align-middle">{{Contact.PhoneNumber}}</td>
                                         <td class="align-middle">{{Contact.Email}}</td>
-                                        <td class="align-middle">{{Contact.Type}}</td>
-                                        <td class="align-middle">{{Contact.Comment}}</td>
+                                        <td  id="text"class="align-middle">{{Contact.Type}}</td>
+                                        <td  id="text"class="align-middle">{{Contact.Comment}}</td>
                                         <td>
-                                                <div class="btn-group">
-                                                        <button class="btn btn-sm btn-info" (click)="ContactService.populateForm(Contact)" (click)="onShowForm('edit')">Edit</button>
-                                                        <button class="btn btn-sm btn-danger" (click)="onDelete(Contact.$key)">Delete</button>
-                                                </div>
+                                            <div class="btn-group">
+                                                <button class="btn btn-sm btn-info" (click)="ContactService.populateForm(Contact)" (click)="onShowForm('edit')">Edit</button>
+                                                <button class="btn btn-sm btn-danger" (click)="onDelete(Contact.$key)">Delete</button>
+                                            </div>
                                         </td>
                                 </tr>
                         </ng-container>
