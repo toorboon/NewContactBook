@@ -5,12 +5,13 @@
 export const environment = {
   production: false,
 firebaseConfig:{
-  apiKey: "AIzaSyDAYnV-tBod28yynvFbfoNlHzmiccWxaRM",
-    authDomain: "project-c-9faff.firebaseapp.com",
-    databaseURL: "https://project-c-9faff.firebaseio.com",
-    projectId: "project-c-9faff",
-    storageBucket: "project-c-9faff.appspot.com",
-    messagingSenderId: "156281941998"}
+	apiKey: "AIzaSyB14CsNighS4wNpya3KALW80FFPXb3JEw8",
+    authDomain: "contactbook-new.firebaseapp.com",
+    databaseURL: "https://contactbook-new.firebaseio.com",
+    projectId: "contactbook-new",
+    storageBucket: "contactbook-new.appspot.com",
+    messagingSenderId: "494926399176"
+	}
 };
 
 /*

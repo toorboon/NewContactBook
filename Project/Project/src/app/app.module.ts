@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 
 import { AngularFireModule } from "angularfire2";
 import { AngularFireDatabaseModule } from "angularfire2/database";
+import { AngularFireStorageModule } from 'angularfire2/storage';
+
 import { environment } from "../environments/environment";
 
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -39,6 +41,7 @@ import { LoginComponent } from './login/login.component';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),// we called initializeApp function to provide connetion details
     AngularFireDatabaseModule,// we will import the classes here too 
+    AngularFireStorageModule,
     AngularFireAuthModule,
     ReactiveFormsModule,
     FormsModule

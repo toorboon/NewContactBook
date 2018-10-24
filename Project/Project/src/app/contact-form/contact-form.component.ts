@@ -38,4 +38,8 @@ export class ContactFormComponent implements OnInit {
     this.ContactService.toggleForm();
     this.ContactService.form.reset();
   }
+
+  photoUp(event) {
+   this.ContactService.chooseFiles(event);
+  }
 }

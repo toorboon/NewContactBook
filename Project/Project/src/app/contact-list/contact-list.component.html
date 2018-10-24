@@ -1,7 +1,9 @@
 
-<form class="form-inline">
-        <input name="searchInput" class="form-control" placeholder="Search" #searchInput="ngModel" [(ngModel)]="searchTextFirst" style="width: 80%;">
-        <button class="btn btn-outline-primary" (click)="searchTextFirst = ''">Reset</button>
+<form class="form-line">
+       <input type="radio" name="Check" (click)="searchTextFirst=''" checked="true">All
+       <input type="radio" name="Check" (click)="searchTextFirst='Student'">Student
+       <input type="radio" name="Check" (click)="searchTextFirst='Company'">Company
+       <input type="radio" name="Check" (click)="searchTextFirst='Lunch-speaker'">Lunchspeaker
 </form>
 
 <form class="form-inline">
@@ -18,6 +20,7 @@
 <div class="p-1 table-responsive">
         <table class="table table-sm table-hover table-dark">
                 <thead>
+                        <th>photo</th>
                         <th>Name</th>
                         <th>Mobile</th>
                         <th>Email</th>
@@ -30,6 +33,7 @@
                         <ng-container *ngFor="let Contact of ContactArray">
                                
                                 <tr id="t-row" *ngIf="filterConditionFirst(Contact) && filterCondition(Contact)">
+                                        <td class="align-middle"><img style="height: 100px; width: 100px;" src="{{imageURL}}"/>{{imageURL}}</td>
                                         <td class="align-middle">{{Contact.FirstName}} {{Contact.LastName}}</td>
                                         <td class="align-middle">{{Contact.PhoneNumber}}</td>
                                         <td class="align-middle">{{Contact.Email}}</td>

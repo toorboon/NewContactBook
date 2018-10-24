@@ -58,11 +58,25 @@
                 <div class="invalid-feedback" *ngIf="submitted && formControls.Type.errors">This field is required</div>
             </div>
 
+            <!--MAKE A CHECKBOX HERE WITH USER OR ADMIN ROLE
+            This is only for sign-up
+    <button (click)="signup()" [disabled]="!email || !password">
+      Signup
+    </button>
+-->
+            <div class="form-group">
+             <label>Photo</label>
+             <button mat-raised-button color="primary" (click)="fileInput.click()">Click</button>
+             <input #fileInput type="file" class="form-control" formControlName="photo"(change)="photoUp($event)" style="display:none;" />
+           </div>
+            
             <div class="form-group">
               <label>Comment</label>
               <textarea class="form-control" formControlName="comment" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.comment.errors}" rows="3"></textarea>
             </div>
           </div>
+
+          
 
           <div class="d-flex justify-content-around form-group text-center">
             <input type="submit" class="btn btn-success" value="Save"><!-- the value of the formControlName must match the name that we provided inside FormGroup in PhonebookService class -->

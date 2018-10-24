@@ -35,7 +35,7 @@ export class AuthService {
         console.log('Login sucessful!');
       })
       .catch(err => {
-        console.log('Login went wrong:',err.message);
+        alert('Login went wrong: ' + err.message);
       });
   }
 

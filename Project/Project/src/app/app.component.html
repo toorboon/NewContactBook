@@ -1,12 +1,6 @@
 <header></header>
 <nav-bar></nav-bar>
  
-<!--This is only for sign-up
-    <button (click)="signup()" [disabled]="!email || !password">
-      Signup
-    </button>
--->
-  
 <!--Blocking the user from seeing anything if  not looged in-->
   <div *ngIf="authService.user | async; else show_login">
 		<router-outlet></router-outlet>
