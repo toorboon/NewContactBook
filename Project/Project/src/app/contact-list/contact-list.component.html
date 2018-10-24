@@ -33,7 +33,7 @@
                         <ng-container *ngFor="let Contact of ContactArray">
                                
                                 <tr id="t-row" *ngIf="filterConditionFirst(Contact) && filterCondition(Contact)">
-                                        <td class="align-middle"><img style="height: 100px; width: 100px;" src="{{Contact.photo}}" alt="your picture"></td>
+                                        <td class="align-middle"><img style="height: 100px; width: 100px;" src="{{Contact.Photo}}" alt="your picture"></td>
                                         <td class="align-middle">{{Contact.FirstName}} {{Contact.LastName}}</td>
                                         <td class="align-middle">{{Contact.PhoneNumber}}</td>
                                         <td class="align-middle">{{Contact.Email}}</td>

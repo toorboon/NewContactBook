@@ -15,7 +15,6 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthService } from './shared/auth.service';
 
 import { ContactComponent } from './contact/contact.component';
-import { ContactFormComponent } from './contact-form/contact-form.component';
 import { ContactListComponent } from './contact-list/contact-list.component';
 import { HeaderComponent } from './header/header.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
@@ -23,6 +22,8 @@ import { FooterComponent } from './footer/footer.component';
 import { SupportComponent } from './support/support.component';
 import { ContactService } from "./shared/contact.service";
 import { LoginComponent } from './login/login.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { LoginComponent } from './login/login.component';
     NavBarComponent,
     FooterComponent,
     SupportComponent,
-    LoginComponent
+    LoginComponent,
+   
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './../shared/auth.service';
+
 declare var $: any;
 
 @Component({
@@ -14,21 +15,11 @@ export class LoginComponent implements OnInit {
   constructor(public authService: AuthService) { }
 
   ngOnInit() {
-  	$(window).on('load',function(){
-        $('#exampleModal').modal('show');
-    });
+  	
   }
 
   login() {
     this.authService.login(this.email, this.password);
     this.email = this.password = '';    
   }
-
-  closeModal(){
-  	$(function() {
-   		$('#exampleModal').modal('toggle');
-	});
-  }
-
-
 }

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactService  } from "../shared/contact.service";
+import { AngularFireStorage } from 'angularfire2/storage';
+
+declare var $: any;
 
 @Component({
   selector: 'app-contact-form',
@@ -11,11 +14,15 @@ export class ContactFormComponent implements OnInit {
   submitted: boolean;
   formControls =this.ContactService.form.controls;
   showSuccessMessage: boolean;
+  selectedFiles: FileList;
+  file: File;
+  photo_url: string = '';
 
-  constructor(private ContactService: ContactService) { }
+  constructor(private ContactService: ContactService,
+              private storage: AngularFireStorage,
+              ) { }
 
   ngOnInit() {
-    
   }
 
   onSubmit(){
@@ -35,16 +42,27 @@ export class ContactFormComponent implements OnInit {
      }
   }
 
-  /*populateUrl(Url){
-    $('#photo_placeholder').val(Url);
-  }*/
-
   onCancel(){
     this.ContactService.toggleForm();
     this.ContactService.form.reset();
   }
-/*
-  photoUp(event) {
-   this.ContactService.chooseFiles(event);
-  }*/
+
+  chooseFiles(event) {
+   this.selectedFiles = event.target.files;
+   if (this.selectedFiles.item(0))
+     this.uploadpic();
+   }
+
+  uploadpic() {
+   let file = this.selectedFiles.item(0);
+   let uniqkey = 'pic' + Math.floor(Math.random() * 1000000);
+   const pathFile='/angfire2store/' + uniqkey;
+   const uploadTask = this.storage.upload(pathFile, file).then(() => {
+        const ref = this.storage.ref(pathFile);
+        let downloadURL = ref.getDownloadURL().subscribe(url => {
+        this.photo_url = url;
+        console.log('photo_url: ' + this.photo_url);
+        });
+    })
+  }
 }

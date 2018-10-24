@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FormControl , FormGroup, Validators } from "@angular/forms";
 import { AngularFireDatabase, AngularFireList,  } from "angularfire2/database";
-import { AngularFireStorage } from 'angularfire2/storage';
-//import { ContactFormComponent } from '../contact-form/contact-form.component'
 
 declare var $: any;
 
@@ -11,11 +9,7 @@ declare var $: any;
 })
 export class ContactService {
   ContactList: AngularFireList<any>;
-  selectedFiles: FileList;
-  file: File;
-  imageURL: string = '';
- 
-
+  
   form = new FormGroup({
      $key:new FormControl(null),
      FirstName:new FormControl('', Validators.required),
@@ -27,9 +21,8 @@ export class ContactService {
      Photo:new FormControl('', Validators.required)
   });
 
-  constructor(private firebase: AngularFireDatabase,
-              private storage: AngularFireStorage,
-              //private contactFormComponent: ContactFormComponent
+  constructor(
+              private firebase: AngularFireDatabase,
               ) { }
 
   getContacts(){
@@ -38,8 +31,6 @@ export class ContactService {
          }
 
   insertContact(Contact){
-        
-        
         this.ContactList.push({
                  FirstName: Contact.FirstName,
                  LastName: Contact.LastName,
@@ -74,7 +65,7 @@ export class ContactService {
   toggleForm(check=false){
       if (check) {
           if ($('#contact-form-container').is(':visible')){
-              //do nothing
+              //do nothing if container is visible
           }else{
               $('#contact-form-container').toggle();
           }
@@ -82,30 +73,8 @@ export class ContactService {
           $('#contact-form-container').toggle(); 
       }
   }
-/*
-  chooseFiles(event) {
-   this.selectedFiles = event.target.files;
-   if (this.selectedFiles.item(0))
-     this.uploadpic();
-   }
 
-  uploadpic() {
-   let file = this.selectedFiles.item(0);
-   let uniqkey = 'pic' + Math.floor(Math.random() * 1000000);
-   const pathFile='/angfire2store/' + uniqkey;
-   const uploadTask = this.storage.upload(pathFile, file).then(() => {
-        const ref = this.storage.ref(pathFile);
-        let downloadURL = ref.getDownloadURL().subscribe(url => {
-        const Url = url;
-        this.imageURL = url;
-        console.log(Url);
-      //  this.contactFormComponent.populateUrl(Url);
-        });
-
-    })*/
-   
-   
-   }
+  
 
   /*THIS WILL BE CALLED FROM CONTACT FORM HTML INSIDE ON SUBMIT FUNCTION
   signup() {
@@ -113,5 +82,5 @@ export class ContactService {
     this.email = this.password = '';
   }*/
 
-
+}
 
