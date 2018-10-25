@@ -66,7 +66,7 @@
         </div>
         <div class="form-group col-lg-12">
           <label>Comment</label>
-          <textarea class="form-control" formControlName="Comment" [ngClass]="{'is-invalid':submitted && formControls.Comment.errors}" rows="3"></textarea>
+          <textarea class="form-control" formControlName="Comment" [ngClass]="{'is-invalid':submitted && formControls.Comment.errors}" rows="1"></textarea>
           <div class="invalid-feedback" *ngIf="submitted && formControls.Comment.errors">This field is required</div>
         </div>
         <!--MAKE A CHECKBOX HERE WITH USER OR ADMIN ROLE
