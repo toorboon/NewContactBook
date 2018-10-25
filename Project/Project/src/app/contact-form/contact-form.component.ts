@@ -60,8 +60,8 @@ export class ContactFormComponent implements OnInit {
    const uploadTask = this.storage.upload(pathFile, file).then(() => {
         const ref = this.storage.ref(pathFile);
         let downloadURL = ref.getDownloadURL().subscribe(url => {
-        this.photo_url = url;
-        console.log('photo_url: ' + this.photo_url);
+          this.photo_url = url;
+          alert('Photo with URL uploaded: ' + this.photo_url);
         });
     })
   }
