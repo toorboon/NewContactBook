@@ -2,7 +2,10 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-export const environment = {
+
+// Connect the Firebase database  with the infos we get from the Firebase
+// Must change the Api-key when you want to upload it to GitHub, otwherwise it will be comprimised
+export const environment = { 
   production: false,
 firebaseConfig:{
 	apiKey: "AIzaSyB14CsNighS4wNpya3KALW80FFPXb3JEw8",
