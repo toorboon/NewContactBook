@@ -1,0 +1,107 @@
+<<<<<<< HEAD
+
+
+<div id="ContactPage" class="row">
+  <div  class="col-12 p-3 text-white">
+    <form [formGroup]="this.ContactService.form">
+=======
+<div id="ContactPage">
+  <div class="text-white text-center">
+    <form [formGroup]="this.ContactService.form" (ngSubmit)="onSubmit()">
+>>>>>>> c5130b40a9d0986f06186becdcb005caa5ec1a6c
+      <input type="hidden" formControlName="$key">
+            <div class="row">
+            <div class="form-group col-lg-6">
+              <label>FirstName</label>
+              <!-- we will add this class is-invalid with the help of [ngClass] directive 
+                                      this class will be applied when the form is submitted and we have a validation error regarding FirstName -->
+            
+              <input formControlName="FirstName" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.FirstName.errors}">
+              <!-- now we will add an additional due to show the exact reason for the validation error so here we have the deal with this class invilid-feedback 
+                                              only based on the same condition inside that -->
+              <div class="invalid-feedback" *ngIf="submitted && formControls.FirstName.errors">This field is required</div>
+            </div>
+            <div class="form-group col-lg-6">
+              <label>LastName</label>
+              <!-- we will add this class is-invalid with the help of [ngClass] directive 
+                                      this class will be applied when the form is submitted and we have a validation error regarding LastName -->
+              <input formControlName="LastName" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.LastName.errors}">
+              <!-- now we will add an additional due to show the exact reason for the validation error so here we have the deal with this class invilid-feedback 
+                                              only based on the same condition inside that -->
+              <div class="invalid-feedback" *ngIf="submitted && formControls.LastName.errors">This field is required</div>
+            </div>
+
+            <div class="form-group col-lg-6">
+              <label>Mobile</label>
+              <input formControlName="PhoneNumber" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.PhoneNumber.errors}">
+              <div class="invalid-feedback" *ngIf="submitted && formControls.PhoneNumber.errors">
+                <label *ngIf="formControls.PhoneNumber.errors.required">This field is required</label>
+                <label *ngIf="formControls.PhoneNumber.errors.minlength">at least 8 numbers</label>
+              </div>
+            </div>
+
+            <div class="form-group col-lg-6">
+              <label>Email</label>
+              <!-- here we add the the invalid class based on the same condition for Email and the possible error for this Email control is due to the invalid Email address -->
+              <input formControlName="Email" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.Email.errors}">
+              <div class="invalid-feedback" *ngIf="submitted && formControls.Email.errors">
+                <label *ngIf="formControls.Email.errors.required">This field is required</label>
+                <label *ngIf="formControls.Email.errors.email">E-Mail is invalid</label>
+              </div>
+            </div>
+            <div class="form-group col-lg-6">
+              <label>Type</label>
+              <select formControlName="Type" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.Type.errors}">
+                <option value="" selected>select</option>
+                <option value="Student" selected>Student</option>
+                <option value="Lunch-speaker">Lunch-speaker</option>
+                <option value="Company">Company</option>
+              </select>
+              <div class="invalid-feedback" *ngIf="submitted && formControls.Type.errors">This field is required</div>
+            </div>
+
+            <div class="form-group col-lg-12">
+              <label>Comment</label>
+              <textarea class="form-control" formControlName="Comment" [ngClass]="{'is-invalid':submitted && formControls.Comment.errors}" rows="3"></textarea>
+              <div class="invalid-feedback" *ngIf="submitted && formControls.Comment.errors">This field is required</div>
+            </div>
+
+
+            <!--MAKE A CHECKBOX HERE WITH USER OR ADMIN ROLE
+            This is only for sign-up
+             <button (click)="signup()" [disabled]="!email || !password">
+               Signup
+            </button>
+            -->
+          <div class="form-group col-lg-12">
+             <label>Photo-Url</label>
+             <input id="photo_placeholder" formControlName="Photo" class="form-control" placeholder="Your url goes here" [(ngModel)]="photo_url">
+             <div class="invalid-feedback" *ngIf="submitted && formControls.Photo.errors">This field is required</div>
+          </div>
+<<<<<<< HEAD
+   
+
+          <div class="d-flex justify-content-around form-group text-center">
+            <input type="submit" class="btn btn-success" value="Save" (click)="onSubmit()"><!-- the value of the formControlName must match the name that we provided inside FormGroup in PhonebookService class -->
+            <input type="button" class="btn btn-danger" value="Cancel" (click)="onCancel()">
+          </div>
+        
+=======
+   <div id="btn">
+            <input type="submit" class="btn btn-success  mx-1" value="Save"><!-- the value of the formControlName must match the name that we provided inside FormGroup in PhonebookService class -->
+            <input type="button" class="btn btn-danger mx-1" value="Cancel" (click)="onCancel()">
+        </div>
+>>>>>>> c5130b40a9d0986f06186becdcb005caa5ec1a6c
+        </div>
+    </form>
+  
+     <div class="">
+       <button mat-raised-button color="primary" (click)="fileInput.click()" class="btn btn-info">Upload Photo</button>
+       <input #fileInput type="file" (change)="chooseFiles($event)" style="display:none;" />
+     </div>
+
+    <div class="alert alert-info" *ngIf="showSuccessMessage">
+      submitted successfully.
+    </div>
+  </div>
+</div>

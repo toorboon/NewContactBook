@@ -9,7 +9,7 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class NavBarComponent implements OnInit {
 	currentUrl: string;
-
+  //Create two object of both class
   constructor(public authService: AuthService,
   			  private router: Router) { 
   	router.events.subscribe((_:NavigationEnd) => this.currentUrl = this.router.url);
@@ -18,7 +18,7 @@ export class NavBarComponent implements OnInit {
   ngOnInit() {
   }
 
-  logout() {
+  logout() {//forward-function to call the logout() from authService
     this.authService.logout();
   }
 }

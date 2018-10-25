@@ -11,13 +11,16 @@ export class AppComponent {
   email: string;
   password: string;
 
+  //we are creating an instance of the authService so we can use the features it is providing!
   constructor(public authService: AuthService) {}
 
+  //passes the provided email and password to the authService login() functiono so it can be checked
   login() {
     this.authService.login(this.email, this.password);
     this.email = this.password = '';    
   }
 
+  //calls the logout function from authService and logout the actual user so a new user can login
   logout() {
     this.authService.logout();
   }
