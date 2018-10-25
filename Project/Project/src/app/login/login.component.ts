@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from './../shared/auth.service';
+import { AuthService } from './../shared/auth.service'; //needs to be imported so we can verify if the user trying to login is allowed to authenticate
 
 declare var $: any;
 
@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   	
   }
 
+  //passes the provided email and password to the authService login() function so it can be checked there
   login() {
     this.authService.login(this.email, this.password);
     this.email = this.password = '';    
