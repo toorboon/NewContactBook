@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from './shared/auth.service';
+import { AuthService } from './shared/auth.service'; //the import is needed here so the router-outlet can be shown or not, if the user is logged in
 
 @Component({
   selector: 'app-root',
@@ -8,20 +8,11 @@ import { AuthService } from './shared/auth.service';
 })
 export class AppComponent {
   title = 'Contact Book New';
-  email: string;
-  password: string;
+  //email: string;
+  //password: string;
 
   //we are creating an instance of the authService so we can use the features it is providing!
-  constructor(public authService: AuthService) {}
+  constructor(public authService: AuthService
+    ) {}
 
-  //passes the provided email and password to the authService login() functiono so it can be checked
-  login() {
-    this.authService.login(this.email, this.password);
-    this.email = this.password = '';    
-  }
-
-  //calls the logout function from authService and logout the actual user so a new user can login
-  logout() {
-    this.authService.logout();
-  }
 }

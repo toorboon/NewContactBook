@@ -1,19 +1,16 @@
 <div id="login-container">
-	<!--Authentication starts here-->
-  <div *ngIf="!(authService.user | async)" >
     <div id="login_box" class="d-flex flex-column">
     	<div class="d-flex flex-column align-items-center my-auto">
+	    	<!--Authentication starts here with fetching the data from the form (email and password-->
 	    	<input type="text" [(ngModel)]="email" placeholder="email">
 	    	<input type="password" [(ngModel)]="password" placeholder="password">
-
+			<!--With click on login the two fields are passed to the login function inside auth.service.ts-->
 	     	<button (click)="login()" [disabled]="!email || !password">Login</button>
 	     </div>
 	</div>
-  </div>
+ 
 
-
-
-<!-- Modal 
+<!-- Modal CAREFUL with commenting that back in, this code is not working at the moment!!! See documentation why that is!
 	<div *ngIf="!(authService.user | async); else test_temp" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
 	  <div class="modal-dialog modal-dialog-centered" role="document">
 	    <div class="modal-content">
@@ -37,5 +34,5 @@
       </div>
     </div>
   </div>
-  <ng-template #test_temp>Hallo Trottel</ng-template>-->
+  <ng-template #test_temp></ng-template>-->
 </div>
