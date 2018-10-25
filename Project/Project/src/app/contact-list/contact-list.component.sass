@@ -9,13 +9,65 @@ $text-color: white
 	background: $background-color3
 	color: $text-color
 
+#btn-list
+	margin-top: 5px
+
 #select
 	cursor: pointer
+
+#table
+	width: 100%
+
 
 @media only screen and (max-width: 576px)
 	#text
 		display: none
 
-	#t-row
-		overflow: scroll
+	/* #t-row
+		overflow: scroll */
+
+	#btn-list
+		display: flex
+		flex-direction: column
+		margin-top: 10%
+
+	#table
+		font-size: 1vw
+
+	td
+		font-size: 3vw
+
+	th
+		font-size: 3vw
+	
+@media only screen and (min-width: 577px) and (max-width: 768px)
+
+	td
+		font-size: 2vw
+
+	th
+		font-size: 2vw
+
+	#text
+		display: none
+
+@media only screen and (min-width: 769px) and (max-width: 992px)
+
+	td
+		font-size: 1em
+
+	th
+		font-size: 1em
+
+	#text
+		display: none
+
+@media only screen and (min-width: 993px) and (max-width: 1200px)
+
+	td
+		font-size: 1em
+
+	th
+		font-size: 1em
+
 
