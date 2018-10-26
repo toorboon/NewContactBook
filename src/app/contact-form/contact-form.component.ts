@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactService  } from "../shared/contact.service";
 import { AngularFireStorage } from 'angularfire2/storage';
+import { MatSnackBar } from '@angular/material';
 
 declare var $: any;
 
@@ -20,6 +21,7 @@ export class ContactFormComponent implements OnInit {
   //make two objects from each class
   constructor(private ContactService: ContactService,
               private storage: AngularFireStorage,
+              public snackBar: MatSnackBar,
               ) { }
 
   ngOnInit() {
@@ -48,6 +50,7 @@ export class ContactFormComponent implements OnInit {
   }
   //use this function to choose an image to upload
   chooseFiles(event) {
+   this.snackBar.open('Thank you for uploading a picture, please wait, until this message disappear!', '');
    this.selectedFiles = event.target.files;
    if (this.selectedFiles.item(0))
      this.uploadpic();
@@ -61,7 +64,10 @@ export class ContactFormComponent implements OnInit {
         const ref = this.storage.ref(pathFile);
         let downloadURL = ref.getDownloadURL().subscribe(url => {
           this.photo_url = url;
-          alert('Photo with URL uploaded: ' + this.photo_url);
+          this.snackBar.open('Photo with URL uploaded!', '', {
+            duration: 5000,
+          });
+          //alert('Photo with URL uploaded: ' + this.photo_url);
         });
     })
   }

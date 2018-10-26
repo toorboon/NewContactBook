@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule,FormsModule } from "@angular/forms"; //used for creating the forms
 import { AppRoutingModule } from './app-routing.module'; //used for making the links in the SAP appear like in a desktop app 
 import { AppComponent } from './app.component'; //root module for bringing all the other app-modules together
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 //this basket is used for accessing all the necessary features from the Firebase
 import { AngularFireModule } from "angularfire2"; //we need this to get the basic Firebase connection up and running
@@ -48,7 +50,9 @@ import { ContactFormComponent } from './contact-form/contact-form.component'; //
     AngularFireStorageModule,//we use it to save the pictures into the Storage part of the Firebase
     AngularFireAuthModule, //we use this to authenticate the user using the Firebase Authentication Service
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatSnackBarModule,
   ],
   providers: [ContactService, AuthService],
   bootstrap: [AppComponent]
