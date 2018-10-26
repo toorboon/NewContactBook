@@ -25,3 +25,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Put it to production
+
+If you intend to use this app in production you MUST change the firebase connected to the app (do this by changing the firebaseConfig in the environment.ts file --> you get new credentials if you generate a new firebase here https://firebase.google.com/). At the moment the connected firebase is already compromised because the api-key is publicly available here on GitHub.

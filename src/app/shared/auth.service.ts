@@ -11,7 +11,7 @@ export class AuthService {
 	user: Observable<firebase.User>;//this is the variable carrying the information for if authenticated, or not
 
   constructor(private firebaseAuth: AngularFireAuth) {
-  	this.user = firebaseAuth.authState;
+  	this.user = firebaseAuth.authState; //create an instance of the user from firebase
   }
 
   //calling the sign-up function from firebase
