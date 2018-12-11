@@ -8,10 +8,15 @@ import { ContactService  } from "../shared/contact.service"; //import the Contac
 })
 export class ContactComponent implements OnInit {
 
-  constructor(private ContactService: ContactService) { } //create an object of the ContactService class
+  constructor(public ContactService: ContactService,
+  			  
+  			  
+  			  ) { } //create an object of the ContactService class
 
   ngOnInit() {
   	this.ContactService.toggleForm(); //call the function to hide out the Form when the App is loaded 
   }
+
+  
 
 }

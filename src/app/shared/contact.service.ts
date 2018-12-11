@@ -22,7 +22,7 @@ export class ContactService {
   });
 
   constructor(
-              private firebase: AngularFireDatabase,
+              public firebase: AngularFireDatabase,
               ) { }
 
   getContacts(){

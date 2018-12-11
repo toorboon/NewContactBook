@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   constructor(public authService: AuthService) { }
 
   ngOnInit() {
-  	
+  	alert('for testing purpose use user: test@gmail.com and password: testtest')
   }
 
   //passes the provided email and password to the authService login() function so it can be checked there

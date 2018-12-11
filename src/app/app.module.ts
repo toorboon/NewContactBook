@@ -6,6 +6,9 @@ import { AppRoutingModule } from './app-routing.module'; //used for making the l
 import { AppComponent } from './app.component'; //root module for bringing all the other app-modules together
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatCardModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material';
 
 //this basket is used for accessing all the necessary features from the Firebase
 import { AngularFireModule } from "angularfire2"; //we need this to get the basic Firebase connection up and running
@@ -14,7 +17,7 @@ import { AngularFireStorageModule } from 'angularfire2/storage'; //the storage o
 import { AngularFireAuthModule } from 'angularfire2/auth'; //the authentication functionality will be done with the inbuild Firebase Autentication module
 
 //you will find here the credentials for your Firebase, if you compromis your API-Key put the new one here
-import { environment } from "../environments/environment";
+import { environment } from "../environments/environment.prod";
 
 //basket for additional components necessary to add extra features
 import { AuthService } from './shared/auth.service'; //service for authenticating the user at the Firebase
@@ -53,6 +56,9 @@ import { ContactFormComponent } from './contact-form/contact-form.component'; //
     FormsModule,
     BrowserAnimationsModule,
     MatSnackBarModule,
+    MatDialogModule,
+    MatCardModule,
+    MatButtonModule,
   ],
   providers: [ContactService, AuthService],
   bootstrap: [AppComponent]

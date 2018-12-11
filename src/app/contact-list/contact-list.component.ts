@@ -13,7 +13,7 @@ export class ContactListComponent implements OnInit {
  searchText:string = "";
  searchTextFirst:string = "";
 
-  constructor(private ContactService: ContactService) { }//create an object of the ContactService class
+  constructor(public ContactService: ContactService) { }//create an object of the ContactService class
 
   ngOnInit() { 
          this.ContactService.getContacts().subscribe(
@@ -47,7 +47,7 @@ export class ContactListComponent implements OnInit {
      
   }
 
-  onShowForm(check){// call the function from  contact.service to show the form
+  onShowForm(check=false){// call the function from  contact.service to show the form
     this.ContactService.toggleForm(check);
   }
 

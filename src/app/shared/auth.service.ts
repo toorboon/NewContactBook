@@ -10,7 +10,7 @@ import { Observable } from 'rxjs'; //this is needed to use the "observable" feat
 export class AuthService {
 	user: Observable<firebase.User>;//this is the variable carrying the information for if authenticated, or not
 
-  constructor(private firebaseAuth: AngularFireAuth) {
+  constructor(public firebaseAuth: AngularFireAuth) {
   	this.user = firebaseAuth.authState; //create an instance of the user from firebase
   }
 

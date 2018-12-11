@@ -19,8 +19,8 @@ export class ContactFormComponent implements OnInit {
   file: File;
   photo_url: string = '';
   //make two objects from each class
-  constructor(private ContactService: ContactService,
-              private storage: AngularFireStorage,
+  constructor(public ContactService: ContactService,
+              public storage: AngularFireStorage,
               public snackBar: MatSnackBar,
               ) { }
 
